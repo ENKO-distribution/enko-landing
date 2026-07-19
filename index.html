@@ -8,18 +8,19 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0A0A'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' fill='%23fff' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0A0A0A;
-    --paper:#FFFFFF;
-    --ink-60:rgba(10,10,10,.6);
+    --paper:#F4F4F2;
+    --white:#FFFFFF;
+    --ink-60:rgba(10,10,10,.62);
     --ink-15:rgba(10,10,10,.15);
-    --paper-70:rgba(255,255,255,.7);
-    --paper-20:rgba(255,255,255,.2);
+    --paper-70:rgba(255,255,255,.72);
+    --paper-25:rgba(255,255,255,.25);
     --space-xs:.5rem; --space-sm:.75rem; --space-md:1.5rem; --space-lg:3rem;
     --space-xl:clamp(4rem,9vw,7.5rem);
-    --display:'Unbounded',sans-serif;
+    --display:'Anton',Impact,sans-serif;
     --body:'Inter',-apple-system,sans-serif;
     --z-header:30; --z-toggle:40;
     --ease:cubic-bezier(.165,.84,.44,1);
@@ -31,130 +32,120 @@
   img{max-width:100%;display:block}
   a{color:inherit}
   .wrap{max-width:78rem;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem)}
+  .display{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.005em}
 
   /* ---------- header ---------- */
-  header{position:absolute;inset:0 0 auto 0;z-index:var(--z-header);display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,3vw,1.75rem) clamp(1.25rem,4vw,3rem)}
-  .logo{font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:.14em;color:var(--paper);text-decoration:none;text-transform:lowercase}
-  .btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:.9rem;letter-spacing:.02em;text-decoration:none;border-radius:999px;padding:.72em 1.6em;transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease);cursor:pointer;border:1px solid transparent}
-  .btn:hover{transform:translateY(-2px)}
-  .btn-ghost{color:var(--paper);border-color:var(--paper-20)}
-  .btn-ghost:hover{background:var(--paper);color:var(--ink)}
-  .btn-solid{background:var(--ink);color:var(--paper)}
-  .btn-solid:hover{background:#2a2a2a}
-  .btn-paper{background:var(--paper);color:var(--ink)}
-  .btn-paper:hover{background:#e8e8e8}
+  header{position:absolute;inset:0 0 auto 0;z-index:var(--z-header);display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,3vw,1.5rem) clamp(1.25rem,4vw,3rem)}
+  .logo{font-family:var(--body);font-weight:600;font-size:1.3rem;letter-spacing:.42em;color:var(--white);text-decoration:none;text-transform:lowercase}
+  /* Концепт 2 buttons: compact, squared, uppercase, arrow */
+  .btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-radius:5px;padding:.62em 1.1em;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);cursor:pointer;border:1px solid transparent}
+  .btn::after{content:" ⌲";font-size:.9em}
+  .btn-ghost{color:var(--white);border-color:var(--paper-25)}
+  .btn-ghost:hover{background:var(--white);color:var(--ink);border-color:var(--white)}
+  .btn-ink{background:var(--ink);color:var(--white)}
+  .btn-ink:hover{background:#2c2c2c}
+  .btn-white{background:var(--white);color:var(--ink)}
+  .btn-white:hover{background:#dcdcda}
 
-  /* ---------- hero ---------- */
-  .hero{position:relative;min-height:100svh;display:flex;color:var(--paper);background:var(--ink);overflow:hidden;isolation:isolate}
-  .hero-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
-  .hero-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.32) 45%,rgba(10,10,10,.8) 100%)}
-
-  /* V1 — poster (concept p.6: headline bottom-left, stat cross top-right) */
-  .hero-v1{display:flex;flex-direction:column;justify-content:flex-end;width:100%;padding:clamp(1.25rem,4vw,3rem);padding-bottom:clamp(2.5rem,6vw,4.5rem)}
-  .hero-v1 h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,7.2vw,5.6rem);line-height:1.04;letter-spacing:-.01em;text-transform:uppercase;max-width:16ch}
-  .hero-v1 .sub{margin-top:var(--space-md);font-size:1.05rem;font-weight:500;color:rgba(255,255,255,.85);max-width:36ch;text-wrap:pretty}
-  .hero-v1 .hero-cta{margin-top:var(--space-lg)}
-  .stat-cross{position:absolute;top:clamp(5rem,12vh,7.5rem);right:clamp(1.25rem,4vw,3rem);display:grid;grid-template-columns:1fr 1fr;width:min(21rem,42vw);font-size:.95rem;font-weight:500;line-height:1.35}
-  .stat-cross div{padding:1.1rem 1.25rem}
-  .stat-cross div:nth-child(1),.stat-cross div:nth-child(2){border-bottom:1px solid var(--paper-20)}
-  .stat-cross div:nth-child(odd){border-right:1px solid var(--paper-20)}
-
-  /* V2 — statement (concept p.5: centered, parenthetical eyebrow) */
-  .hero-v2{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;width:100%;padding:clamp(5.5rem,14vh,8rem) clamp(1.25rem,4vw,3rem) clamp(3rem,8vh,5rem)}
-  .eyebrow{font-size:.95rem;font-weight:500;color:var(--paper-70)}
-  .hero-v2 h1{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,7.5vw,5.8rem);line-height:1.06;letter-spacing:-.01em;text-transform:uppercase;margin-top:var(--space-sm)}
-  .hero-v2 .services-line{margin-top:var(--space-md);font-family:var(--display);font-weight:500;font-size:clamp(.85rem,1.7vw,1.05rem);letter-spacing:.04em;text-transform:uppercase}
-  .hero-v2 .mission{margin-top:var(--space-md);font-size:1.1rem;color:rgba(255,255,255,.9);max-width:50ch;text-wrap:balance}
-  .hero-v2 .statline{margin-top:var(--space-sm);font-weight:600;font-size:1rem}
-  .hero-v2 .hero-cta{margin-top:var(--space-lg)}
+  /* ---------- hero (Концепт 2: centered condensed caps over full-color photo) ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;color:var(--white);background:var(--ink);overflow:hidden;isolation:isolate}
+  .hero-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+  .hero-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,10,.42) 0%,rgba(10,10,10,.30) 50%,rgba(10,10,10,.55) 100%)}
+  .hero-inner{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;width:100%;padding:clamp(5.5rem,14vh,8rem) clamp(1.25rem,4vw,3rem) clamp(3rem,8vh,5rem)}
+  .eyebrow{font-size:.95rem;font-weight:500;color:rgba(255,255,255,.85)}
+  .hero h1{font-size:clamp(3rem,9.5vw,6rem);line-height:.98;margin-top:var(--space-sm);text-shadow:0 2px 40px rgba(0,0,0,.25)}
+  .hero-cols{margin-top:var(--space-lg);display:flex;gap:clamp(1.5rem,6vw,5rem);justify-content:center;flex-wrap:wrap;font-size:.98rem;font-weight:500;line-height:1.55}
+  .hero-cols p{max-width:30ch}
+  .hero-cta{margin-top:var(--space-lg)}
+  .services-line{margin-top:var(--space-md);font-weight:600;font-size:clamp(.85rem,1.6vw,1rem);letter-spacing:.08em;text-transform:uppercase}
   [hidden]{display:none !important}
 
-  /* ---------- trust strip ---------- */
+  /* ---------- trust strip: logos only ---------- */
   .trust{padding-block:var(--space-lg);border-bottom:1px solid var(--ink-15)}
-  .trust p{font-size:.95rem;font-weight:500;color:var(--ink-60);max-width:60ch}
-  .partners{margin-top:var(--space-md);display:flex;flex-wrap:wrap;gap:.75rem 2.5rem;align-items:baseline}
-  .partners span{font-family:var(--display);font-weight:500;font-size:clamp(.8rem,1.6vw,1rem);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+  .partners{display:flex;flex-wrap:wrap;gap:1.5rem clamp(2rem,5vw,4rem);align-items:center;justify-content:space-between}
+  .partners img{height:clamp(20px,2.6vw,30px);width:auto;filter:grayscale(1);opacity:.85}
+  .partners img.tall{height:clamp(30px,3.8vw,44px)}
 
   /* ---------- section scaffolding ---------- */
   .section{padding-block:var(--space-xl)}
-  .sec-title{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,4vw,3.2rem);line-height:1.1;text-transform:uppercase;letter-spacing:-.005em}
+  .sec-title{font-size:clamp(2.2rem,5.5vw,4rem);line-height:1.02}
   .sec-intro{margin-top:var(--space-md);font-size:1.1rem;max-width:58ch}
 
-  /* ---------- stats grid (hairline swiss table) ---------- */
-  .stats{margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink-15)}
+  /* ---------- stats grid ---------- */
+  .stats{margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink-15);background:var(--white)}
   .stat{padding:clamp(1.25rem,3vw,2.25rem);border-right:1px solid var(--ink-15);border-bottom:1px solid var(--ink-15);min-height:9.5rem;display:flex;flex-direction:column;justify-content:space-between;gap:.75rem}
   .stat:nth-child(3n){border-right:0}
   .stat:nth-child(n+4){border-bottom:0}
-  .stat b{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4.4vw,3.4rem);line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .stat b{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1;font-variant-numeric:tabular-nums}
   .stat span{font-size:.92rem;font-weight:500;color:var(--ink-60);line-height:1.4}
   .stat small{display:block;font-size:.8rem;color:var(--ink-60);margin-top:.15rem}
-  .stat-accent{background:var(--ink);color:var(--paper)}
+  .stat-accent{background:var(--ink);color:var(--white)}
   .stat-accent span,.stat-accent small{color:var(--paper-70)}
 
-  /* ---------- carpetman (dark full-bleed) ---------- */
-  .case{position:relative;color:var(--paper);background:var(--ink);overflow:hidden;isolation:isolate}
-  .case-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1) brightness(.8)}
-  .case-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,10,10,.88) 0%,rgba(10,10,10,.55) 55%,rgba(10,10,10,.35) 100%)}
-  .case-inner{padding-block:var(--space-xl)}
-  .case h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5.5vw,4.2rem);text-transform:uppercase;line-height:1.05;margin-top:var(--space-sm)}
-  .case .narrative{margin-top:var(--space-md);font-size:1.12rem;line-height:1.7;max-width:56ch;color:rgba(255,255,255,.88)}
-  .case-stats{margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--paper-20)}
-  .case-stats div{padding:1.25rem 1.25rem 0 0}
-  .case-stats b{font-family:var(--display);font-weight:800;font-size:clamp(1.3rem,2.6vw,2rem);line-height:1.1;display:block}
-  .case-stats span{font-size:.85rem;color:var(--paper-70);line-height:1.35;display:block;margin-top:.4rem}
-  .case .eyebrow{color:var(--paper-70)}
+  /* ---------- carpetman (producer project) ---------- */
+  .carpet{background:var(--white);border-block:1px solid var(--ink-15)}
+  .carpet-inner{padding-block:var(--space-xl);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .carpet h2{font-size:clamp(2.6rem,7vw,5rem);line-height:1}
+  .carpet .narrative{margin-top:var(--space-md);font-size:1.12rem;line-height:1.7;max-width:54ch}
+  .carpet-photo{aspect-ratio:4/5;object-fit:cover;width:100%}
+  .carpet-stats{margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));border-top:1px solid var(--ink-15)}
+  .carpet-stats div{padding:1.1rem 1rem 0 0}
+  .carpet-stats b{font-family:var(--display);font-weight:400;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.1;display:block}
+  .carpet-stats span{font-size:.85rem;color:var(--ink-60);line-height:1.35;display:block;margin-top:.35rem}
+  .chart-block{padding-bottom:var(--space-xl)}
+  .chart-block img{width:100%;border:1px solid var(--ink-15);border-radius:8px}
+  .chart-block figcaption{margin-top:.7rem;font-size:.88rem;color:var(--ink-60)}
 
   /* ---------- services ---------- */
   .svc-list{margin-top:var(--space-lg);display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(2rem,5vw,4.5rem)}
   .svc{padding-block:1.1rem;border-bottom:1px solid var(--ink-15);display:flex;gap:1rem;align-items:baseline}
   .svc b{font-weight:600;font-size:1.02rem;white-space:nowrap}
   .svc span{color:var(--ink-60);font-size:.95rem}
-  .spotlight{margin-top:var(--space-lg);background:var(--ink);color:var(--paper);padding:clamp(1.75rem,4vw,3rem)}
-  .spotlight h3{font-family:var(--display);font-weight:800;font-size:clamp(1.2rem,2.6vw,1.9rem);text-transform:uppercase;letter-spacing:.01em}
+  .spotlight{margin-top:var(--space-lg);background:var(--ink);color:var(--white);padding:clamp(1.75rem,4vw,3rem);border-radius:8px}
+  .spotlight h3{font-family:var(--display);font-weight:400;font-size:clamp(1.4rem,3vw,2.2rem);text-transform:uppercase}
   .spotlight p{margin-top:var(--space-sm);font-size:1.05rem;line-height:1.65;max-width:62ch;color:rgba(255,255,255,.88)}
   .spotlight ul{margin-top:var(--space-md);list-style:none;display:flex;flex-wrap:wrap;gap:.6rem 2.2rem;font-weight:600;font-size:.95rem}
-  .spotlight li{border-top:1px solid var(--paper-20);padding-top:.6rem}
+  .spotlight li{border-top:1px solid var(--paper-25);padding-top:.6rem}
 
   /* ---------- achievements ---------- */
   .ach-framing{margin-top:var(--space-sm);font-size:1.08rem;color:var(--ink-60);max-width:52ch}
   .ach{margin-top:var(--space-lg);border-top:1px solid var(--ink-15)}
   .ach-row{display:grid;grid-template-columns:minmax(12rem,18rem) 1fr;gap:1rem clamp(1.5rem,4vw,3.5rem);padding-block:clamp(1.4rem,3vw,2.2rem);border-bottom:1px solid var(--ink-15)}
-  .ach-row h3{font-family:var(--display);font-weight:800;font-size:clamp(1.05rem,2.1vw,1.5rem);line-height:1.25;text-transform:uppercase}
-  .ach-row p{font-size:1.02rem;max-width:58ch;align-self:center}
+  .ach-row h3{font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.15;text-transform:uppercase}
+  .ach-row p{font-size:1.02rem;max-width:60ch;align-self:center}
+  /* cover strip inside the platforms row */
+  .covers{grid-column:1/-1;display:flex;gap:.9rem;overflow-x:auto;padding-top:.5rem;scrollbar-width:thin}
+  .covers img,.covers .cover-slot{width:120px;height:120px;object-fit:cover;border-radius:10px;flex:none}
+  .cover-slot{border:1px dashed var(--ink-15);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--ink-60);text-align:center;padding:.5rem}
 
   /* ---------- about ---------- */
-  .about p{font-family:var(--body);font-weight:500;font-size:clamp(1.25rem,2.6vw,1.85rem);line-height:1.5;max-width:36em;text-wrap:pretty}
+  .about p{font-weight:500;font-size:clamp(1.25rem,2.6vw,1.85rem);line-height:1.5;max-width:36em;text-wrap:pretty}
 
   /* ---------- contact ---------- */
-  .contact{background:var(--ink);color:var(--paper)}
+  .contact{background:var(--ink);color:var(--white)}
   .contact-inner{padding-block:var(--space-xl);display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem)}
-  .contact h2{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.02;text-transform:uppercase}
+  .contact h2{font-size:clamp(2.8rem,7vw,5.2rem);line-height:.98}
   .contact .invite{margin-top:var(--space-md);font-size:1.1rem;color:var(--paper-70);max-width:38ch}
   .field{display:block;margin-bottom:1.4rem}
   .field span{display:block;font-size:.88rem;font-weight:600;letter-spacing:.03em;margin-bottom:.45rem}
-  .field input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--paper-20);color:var(--paper);font:inherit;font-size:1.05rem;padding:.55rem 0;border-radius:0;transition:border-color .3s var(--ease)}
+  .field input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--paper-25);color:var(--white);font:inherit;font-size:1.05rem;padding:.55rem 0;border-radius:0;transition:border-color .3s var(--ease)}
   .field input::placeholder{color:rgba(255,255,255,.55)}
-  .field input:focus{outline:none;border-bottom-color:var(--paper)}
-  .field input:focus-visible{outline:2px solid var(--paper);outline-offset:4px}
+  .field input:focus{outline:none;border-bottom-color:var(--white)}
+  .field input:focus-visible{outline:2px solid var(--white);outline-offset:4px}
   .direct{margin-top:var(--space-md);font-size:.95rem;color:var(--paper-70)}
-  .direct b{color:var(--paper)}
-  footer{border-top:1px solid var(--paper-20)}
+  .direct b{color:var(--white)}
+  footer{border-top:1px solid var(--paper-25)}
   .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;padding-block:1.5rem;font-size:.88rem;color:var(--paper-70)}
-  .foot .logo{font-size:1rem;color:var(--paper)}
+  .foot .logo{font-size:1rem}
 
   /* ---------- variant toggle (review only) ---------- */
-  .vtoggle{position:fixed;bottom:1.25rem;right:1.25rem;z-index:var(--z-toggle);display:flex;gap:.25rem;background:var(--paper);border:1px solid var(--ink-15);border-radius:999px;padding:.3rem;box-shadow:0 6px 24px rgba(0,0,0,.18);font-size:.82rem;font-weight:600}
-  .vtoggle button{border:0;background:transparent;font:inherit;padding:.45em 1em;border-radius:999px;cursor:pointer;color:var(--ink-60)}
-  .vtoggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .vtoggle{position:fixed;bottom:1.25rem;right:1.25rem;z-index:var(--z-toggle);display:flex;gap:.25rem;background:var(--white);border:1px solid var(--ink-15);border-radius:7px;padding:.3rem;box-shadow:0 6px 24px rgba(0,0,0,.18);font-size:.82rem;font-weight:600}
+  .vtoggle button{border:0;background:transparent;font:inherit;padding:.45em 1em;border-radius:5px;cursor:pointer;color:var(--ink-60)}
+  .vtoggle button[aria-pressed="true"]{background:var(--ink);color:var(--white)}
   .vtoggle button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 
-  /* ---------- reveals (JS sets initial state; no-JS stays visible) ---------- */
-  .js .reveal-ready{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-  .js .reveal-in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .js .reveal-ready{opacity:1;transform:none;transition:none}
-    .btn,.btn:hover{transform:none;transition:none}
   }
 
   /* ---------- responsive ---------- */
@@ -166,16 +157,16 @@
     .stat:nth-child(n+5){border-bottom:0}
     .svc-list{grid-template-columns:1fr}
     .contact-inner{grid-template-columns:1fr}
-    .stat-cross{position:static;width:100%;max-width:24rem;margin-bottom:var(--space-lg)}
-    .hero-v1{justify-content:flex-end;padding-top:6.5rem}
+    .carpet-inner{grid-template-columns:1fr}
+    .carpet-photo{aspect-ratio:3/2}
+    .partners{justify-content:flex-start}
   }
   @media (max-width:560px){
     .ach-row{grid-template-columns:1fr;gap:.5rem}
-    .partners{gap:.6rem 1.6rem}
     .vtoggle{bottom:.75rem;right:.75rem;font-size:.72rem;padding:.2rem}
     .vtoggle button{padding:.4em .8em}
-    .hero-v1{padding-bottom:5.5rem}
-    .hero-v2{padding-bottom:5.5rem}
+    .hero-inner{padding-bottom:5.5rem}
+    .hero-cols{gap:1rem;flex-direction:column;align-items:center}
   }
 </style>
 </head>
@@ -186,47 +177,43 @@
   <a class="btn btn-ghost" href="#contact">Get in touch</a>
 </header>
 
-<!-- ============ HERO ============
-     PHOTO PLACEHOLDER: swap src for real ENKO asset (Carpetman / Kalush live shot).
-     Keep ~2000px wide landscape. -->
+<!-- ============ HERO — Carpetman by ENKO ============ -->
 <section class="hero" aria-label="ENKO — music company">
-  <img class="hero-photo" data-placeholder src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=2000&q=80" alt="Live show — stage lights over a packed floor" fetchpriority="high">
+  <img class="hero-photo" src="assets/hero-carpetman.jpg" alt="Carpetman — masked in traditional carpet patterns — playing an acoustic guitar in sunlight" fetchpriority="high">
   <div class="hero-scrim" aria-hidden="true"></div>
 
   <!-- V1 · Poster -->
-  <div class="hero-v1" id="heroV1">
-    <div class="stat-cross" aria-label="Key numbers">
-      <div>140+<br>artists</div>
-      <div>Eurovision<br>winners</div>
-      <div>16&nbsp;billion+<br>streams</div>
-      <div>Platinum<br>records</div>
+  <div class="hero-inner" id="heroV1">
+    <p class="eyebrow">(Music company)</p>
+    <h1 class="display">We make<br>records travel.</h1>
+    <div class="hero-cols">
+      <p>Label, distribution, and marketing under one roof.</p>
+      <p>140+ artists. 16B+ streams.<br>Eurovision winners. Platinum hits.</p>
     </div>
-    <h1>We make<br>records travel.</h1>
-    <p class="sub">Label, distribution, and marketing under one roof.</p>
-    <div class="hero-cta"><a class="btn btn-paper" href="#contact">Talk to us</a></div>
+    <div class="hero-cta"><a class="btn btn-white" href="#contact">Talk to us</a></div>
   </div>
 
   <!-- V2 · Statement -->
-  <div class="hero-v2" id="heroV2" hidden>
+  <div class="hero-inner" id="heroV2" hidden>
     <p class="eyebrow">(Music company)</p>
-    <h1>More than<br>a label.</h1>
+    <h1 class="display">More than<br>a label.</h1>
     <p class="services-line">Distribution. Marketing. Publishing. Artist development.</p>
-    <p class="mission">We study what the world streams and put our artists there early.</p>
-    <p class="statline">140+ artists. 16B+ streams and counting.</p>
-    <div class="hero-cta"><a class="btn btn-paper" href="#contact">Get in touch</a></div>
+    <div class="hero-cols">
+      <p>We study what the world streams and put our artists there early.</p>
+      <p>140+ artists.<br>16B+ streams and counting.</p>
+    </div>
+    <div class="hero-cta"><a class="btn btn-white" href="#contact">Get in touch</a></div>
   </div>
 </section>
 
-<!-- ============ TRUST STRIP ============ -->
+<!-- ============ TRUST STRIP — logos only ============ -->
 <section class="trust" aria-label="Partners">
   <div class="wrap">
-    <p>Distribution through Universal Music Group. Publishing with Sony and Kobalt. Touring with THE&nbsp;TEAM.</p>
-    <div class="partners" role="list">
-      <span role="listitem">Universal Music Group</span>
-      <span role="listitem">Sony Music Publishing</span>
-      <span role="listitem">Kobalt Music</span>
-      <span role="listitem">The Team · Wasserman</span>
-      <span role="listitem">Lira</span>
+    <div class="partners">
+      <img class="tall" src="assets/logos/umg.png" alt="Universal Music Group">
+      <img src="assets/logos/sony-music-publishing.svg" alt="Sony Music Publishing">
+      <img src="assets/logos/kobalt.svg" alt="Kobalt Music">
+      <img src="assets/logos/wasserman.svg" alt="THE TEAM">
     </div>
   </div>
 </section>
@@ -234,56 +221,57 @@
 <!-- ============ STATS ============ -->
 <section class="section" aria-labelledby="stats-title">
   <div class="wrap">
-    <h2 class="sec-title" id="stats-title">By the numbers</h2>
+    <h2 class="sec-title display" id="stats-title">By the numbers</h2>
     <div class="stats">
-      <div class="stat stat-accent"><b data-count="16" data-suffix="B+">16B+</b><span>streams</span></div>
-      <div class="stat"><b data-count="400" data-suffix="+">400+</b><span>hits</span></div>
-      <div class="stat"><b data-count="48">48</b><span>platinum &amp; gold hits<small>100M+ / 60M+ streams each</small></span></div>
-      <div class="stat"><b data-count="134">134</b><span>our artists on Spotify editorial playlist covers</span></div>
-      <div class="stat"><b data-count="1.4" data-suffix="M+" data-decimals="1">1.4M+</b><span>TikTok videos using our sounds</span></div>
-      <div class="stat"><b data-count="1" data-suffix="B+">1B+</b><span>video views</span></div>
+      <div class="stat stat-accent"><b>16B+</b><span>streams</span></div>
+      <div class="stat"><b>400+</b><span>hits</span></div>
+      <div class="stat"><b>48</b><span>platinum &amp; gold hits<small>100M+ / 60M+ streams each</small></span></div>
+      <div class="stat"><b>134</b><span>Spotify editorial playlist covers featuring our artists</span></div>
+      <div class="stat"><b>1.4M+</b><span>TikTok videos using our sounds</span></div>
+      <div class="stat"><b>1B+</b><span>video views</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ CARPETMAN ============
-     PHOTO PLACEHOLDER: swap src for real Carpetman press shot (the carpet mask!). -->
-<section class="case" aria-labelledby="case-title">
-  <img class="case-photo" data-placeholder src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=2000&q=80" alt="A performer at the mic under stage light" loading="lazy">
-  <div class="case-scrim" aria-hidden="true"></div>
-  <div class="wrap case-inner">
-    <p class="eyebrow">(Case study)</p>
-    <h2 id="case-title">Carpetman</h2>
-    <p class="narrative">Carpetman came to us anonymous — a singer in a full carpet mask, unknown outside his home market. We ran our standard build: TikTok first, paid media behind the sounds that reacted, editorial once the data made the case. Half a billion views later, &ldquo;Feel So Cold&rdquo; sat at #11 on Shazam&rsquo;s global chart. Nothing about that playbook was specific to him.</p>
-    <div class="case-stats">
-      <div><b>500M</b><span>views</span></div>
-      <div><b>126.5M</b><span>Spotify streams</span></div>
-      <div><b>2M</b><span>Spotify monthly listeners</span></div>
-      <div><b>34.2M</b><span>Apple Music streams</span></div>
-      <div><b>15.8M</b><span>monthly audience on YouTube</span></div>
-      <div><b>#11</b><span>Shazam Global — &ldquo;Feel So Cold&rdquo;</span></div>
+<!-- ============ CARPETMAN — producer project, built in-house ============ -->
+<section class="carpet" aria-labelledby="carpet-title">
+  <div class="wrap carpet-inner">
+    <div>
+      <h2 class="display" id="carpet-title">Carpetman</h2>
+      <p class="narrative">Carpetman is an ENKO producer project — an artist built in-house from day one. Writing, production, and promo all happen under our roof, and the growth curve shows what that machine does at full speed: from under 5M to 17M+ Spotify monthly listeners in six months, half a billion views, and &ldquo;Feel So Cold&rdquo; at #11 on Shazam&rsquo;s global chart.</p>
+      <div class="carpet-stats">
+        <div><b>500M</b><span>views</span></div>
+        <div><b>126.5M</b><span>Spotify streams</span></div>
+        <div><b>17M+</b><span>Spotify monthly listeners</span></div>
+        <div><b>34.2M</b><span>Apple Music streams</span></div>
+        <div><b>15.8M</b><span>monthly audience on YouTube</span></div>
+        <div><b>#11</b><span>Shazam Global — &ldquo;Feel So Cold&rdquo;</span></div>
+      </div>
     </div>
+    <img class="carpet-photo" src="assets/carpetman-red.jpg" alt="Carpetman with an acoustic guitar against a red backdrop">
   </div>
+  <figure class="wrap chart-block">
+    <img src="assets/carpetman-spotify-6m.png" alt="Spotify for Artists chart: Carpetman's monthly listeners growing from about 4.5 million in February 2026 to over 17 million in July 2026" loading="lazy">
+    <figcaption>Spotify monthly listeners, February — July 2026.</figcaption>
+  </figure>
 </section>
 
 <!-- ============ SERVICES ============ -->
 <section class="section" aria-labelledby="svc-title">
   <div class="wrap">
-    <h2 class="sec-title" id="svc-title">What we do</h2>
+    <h2 class="sec-title display" id="svc-title">What we do</h2>
     <p class="sec-intro">Most artists at your level are stitching this together from five different vendors. We keep it in one building.</p>
     <div class="svc-list">
-      <div class="svc"><b>Distribution</b><span>every platform, every market.</span></div>
+      <div class="svc"><b>Distribution</b><span>all major platforms, markets worldwide.</span></div>
       <div class="svc"><b>Publishing</b><span>registered, tracked, collected worldwide.</span></div>
       <div class="svc"><b>Legal support</b><span>contracts read before you sign.</span></div>
-      <div class="svc"><b>Personal release manager</b><span>one person who knows your record cold.</span></div>
-      <div class="svc"><b>Advances</b><span>funding when a project needs it.</span></div>
+      <div class="svc"><b>Personal distribution manager</b><span>one person who knows your record cold.</span></div>
       <div class="svc"><b>Royalty reporting</b><span>every stream itemized.</span></div>
-      <div class="svc"><b>Strategy sessions</b><span>regular sit-downs on the plan.</span></div>
-      <div class="svc"><b>PR &amp; brand deals</b><span>press and partnerships that fit.</span></div>
+      <div class="svc"><b>Strategy sessions</b><span>a sit-down on the plan, whenever you need one.</span></div>
     </div>
     <div class="spotlight">
       <h3>ENKO Marketing</h3>
-      <p>Our in-house ad and promo team. They run paid on Facebook, TikTok, and YouTube, build a promo plan for every release, and handle influencer campaigns end to end. It&rsquo;s the reason the numbers on this page look the way they do.</p>
+      <p>Our in-house ad and promo team, built together with our partners at LIRA. We run paid on Facebook, TikTok, and YouTube, we build a promo plan for every release, and we handle influencer campaigns end to end. It&rsquo;s the reason the numbers on this page look the way they do.</p>
       <ul>
         <li>1.4M+ TikTok videos on our sounds</li>
         <li>1B+ combined reach</li>
@@ -296,28 +284,32 @@
 <!-- ============ ACHIEVEMENTS ============ -->
 <section class="section" aria-labelledby="ach-title" style="padding-top:0">
   <div class="wrap">
-    <h2 class="sec-title" id="ach-title">We make artists visible.</h2>
+    <h2 class="sec-title display" id="ach-title">We make artists visible.</h2>
     <p class="ach-framing">No guarantees in this business, and no two artists get the same plan. This is where the work has landed so far.</p>
     <div class="ach">
       <div class="ach-row">
         <h3>Eurovision. Twice.</h3>
-        <p>Kalush Orchestra won it in 2022 with &ldquo;Stefania.&rdquo; alyona alyona &amp; Jerry Heil went top-3 in 2024 with &ldquo;Teresa &amp; Maria.&rdquo; Both full-management ENKO artists — our team behind everything from release to stage.</p>
+        <p>The biggest music event in Europe — 160M+ viewers a year. Kalush Orchestra won it in 2022 with &ldquo;Stefania.&rdquo; alyona alyona &amp; Jerry Heil went top-3 in 2024 with &ldquo;Teresa &amp; Maria.&rdquo; Both full-management ENKO artists — our team behind everything from release to stage.</p>
+      </div>
+      <div class="ach-row">
+        <h3>Faces of Apple&nbsp;Music &amp; Spotify</h3>
+        <p>Our artists front the platforms&rsquo; own campaigns — Apple Music Sessions, Apple Music Up Next, Spotify EQUAL: banners, covers, playlists, special sessions, and billboards over Times Square.</p>
+        <!-- COVER STRIP: drop campaign cover images into assets/covers/ and swap these slots for <img> tags -->
+        <div class="covers" aria-label="Campaign covers">
+          <div class="cover-slot">EQUAL cover</div>
+          <div class="cover-slot">Apple Music Sessions</div>
+          <div class="cover-slot">Up Next</div>
+          <div class="cover-slot">editorial cover</div>
+          <div class="cover-slot">Times Square</div>
+        </div>
       </div>
       <div class="ach-row">
         <h3>Music Moves Europe Award, 2026</h3>
         <p>Carpetman took the European Union&rsquo;s music prize at Eurosonic, Europe&rsquo;s biggest showcase festival.</p>
       </div>
       <div class="ach-row">
-        <h3>Times Square, seven times</h3>
-        <p>Seven of our artists have fronted Spotify&rsquo;s EQUAL campaign: playlist covers, and billboards over Times Square.</p>
-      </div>
-      <div class="ach-row">
-        <h3>Faces of Apple Music</h3>
-        <p>Our artists front Apple Music editorial campaigns.</p>
-      </div>
-      <div class="ach-row">
-        <h3>14 cities, 9 sold out</h3>
-        <p>Carpetman&rsquo;s first European headline tour sold out nine rooms before opening night. Then came roughly 20 North American dates opening for Hippie Sabotage, Brooklyn Steel to the Hollywood Palladium.</p>
+        <h3>14 cities. 9 sold out before opening night.</h3>
+        <p>Carpetman&rsquo;s first European headline run: 14 cities across 11 countries — nine sold out before the tour even started, Berlin, London, Paris, and Amsterdam among them, with venues upgraded mid-sale to meet demand. Then North America: roughly 20 dates with Hippie Sabotage, from Brooklyn Steel to the Hollywood Palladium.</p>
       </div>
     </div>
   </div>
@@ -334,7 +326,7 @@
 <section class="contact" id="contact" aria-labelledby="contact-title">
   <div class="wrap contact-inner">
     <div>
-      <h2 id="contact-title">Talk<br>to us</h2>
+      <h2 class="display" id="contact-title">Talk<br>to us</h2>
       <p class="invite">Send over your project and we&rsquo;ll tell you, straight, what we&rsquo;d do with it.</p>
     </div>
     <div>
@@ -342,7 +334,7 @@
         <label class="field"><span>Name</span><input type="text" name="name" autocomplete="name" required placeholder="Your name"></label>
         <label class="field"><span>Artist name or Spotify link</span><input type="text" name="artist" required placeholder="Artist name or link"></label>
         <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" required placeholder="you@email.com"></label>
-        <button class="btn btn-paper" type="submit">Send it</button>
+        <button class="btn btn-white" type="submit">Send it</button>
         <p class="direct">Prefer email? Write us direct: <b>hello@enkomusic.com</b> <em>(address to be confirmed — placeholder)</em></p>
       </form>
     </div>
@@ -377,44 +369,6 @@
       });
     });
   });
-
-  /* scroll reveals — initial state applied by JS only, so no-JS users see everything */
-  var revealables = document.querySelectorAll('.trust .wrap, .section .wrap > *, .case-inner > *');
-  if (!reduced && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { e.target.classList.add('reveal-in'); io.unobserve(e.target); }
-      });
-    }, {threshold: .12});
-    revealables.forEach(function(el){
-      if (el.getBoundingClientRect().top > innerHeight) {
-        el.classList.add('reveal-ready'); io.observe(el);
-      }
-    });
-  }
-
-  /* stat count-up, once, honest final values */
-  if (!reduced && 'IntersectionObserver' in window) {
-    var io2 = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (!e.isIntersecting) return;
-        var el = e.target, target = parseFloat(el.getAttribute('data-count'));
-        var suffix = el.getAttribute('data-suffix') || '';
-        var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
-        var t0 = null;
-        function step(ts){
-          if (!t0) t0 = ts;
-          var p = Math.min((ts - t0) / 900, 1);
-          var eased = 1 - Math.pow(1 - p, 4);
-          el.textContent = (target * eased).toFixed(dec) + suffix;
-          if (p < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-        io2.unobserve(el);
-      });
-    }, {threshold: .6});
-    document.querySelectorAll('[data-count]').forEach(function(el){ io2.observe(el); });
-  }
 
   /* contact form → mailto (placeholder plumbing until Formspree endpoint is set) */
   document.getElementById('contactForm').addEventListener('submit', function(ev){
