@@ -8,19 +8,18 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0A0A'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' fill='%23fff' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0A0A0A;
-    --paper:#F4F4F2;
-    --white:#FFFFFF;
+    --paper:#FFFFFF;
     --ink-60:rgba(10,10,10,.62);
     --ink-15:rgba(10,10,10,.15);
     --paper-70:rgba(255,255,255,.72);
-    --paper-25:rgba(255,255,255,.25);
+    --paper-20:rgba(255,255,255,.22);
     --space-xs:.5rem; --space-sm:.75rem; --space-md:1.5rem; --space-lg:3rem;
     --space-xl:clamp(4rem,9vw,7.5rem);
-    --display:'Anton',Impact,sans-serif;
+    --display:'Unbounded',sans-serif;
     --body:'Inter',-apple-system,sans-serif;
     --z-header:30; --z-toggle:40;
     --ease:cubic-bezier(.165,.84,.44,1);
@@ -32,32 +31,45 @@
   img{max-width:100%;display:block}
   a{color:inherit}
   .wrap{max-width:78rem;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem)}
-  .display{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.005em}
+  .display{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.005em}
 
   /* ---------- header ---------- */
-  header{position:absolute;inset:0 0 auto 0;z-index:var(--z-header);display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,3vw,1.5rem) clamp(1.25rem,4vw,3rem)}
-  .logo{font-family:var(--body);font-weight:600;font-size:1.3rem;letter-spacing:.42em;color:var(--white);text-decoration:none;text-transform:lowercase}
-  /* Концепт 2 buttons: compact, squared, uppercase, arrow */
-  .btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-radius:5px;padding:.62em 1.1em;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);cursor:pointer;border:1px solid transparent}
-  .btn::after{content:" ⌲";font-size:.9em}
-  .btn-ghost{color:var(--white);border-color:var(--paper-25)}
-  .btn-ghost:hover{background:var(--white);color:var(--ink);border-color:var(--white)}
-  .btn-ink{background:var(--ink);color:var(--white)}
-  .btn-ink:hover{background:#2c2c2c}
-  .btn-white{background:var(--white);color:var(--ink)}
-  .btn-white:hover{background:#dcdcda}
+  header{position:absolute;inset:0 0 auto 0;z-index:var(--z-header);display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,3vw,1.75rem) clamp(1.25rem,4vw,3rem)}
+  .logo{font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:.14em;color:var(--paper);text-decoration:none;text-transform:lowercase}
+  .btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:.9rem;letter-spacing:.02em;text-decoration:none;border-radius:999px;padding:.72em 1.6em;transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease);cursor:pointer;border:1px solid transparent}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-ghost{color:var(--paper);border-color:var(--paper-20)}
+  .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+  .btn-paper{background:var(--paper);color:var(--ink)}
+  .btn-paper:hover{background:#e8e8e8}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .btn,.btn:hover{transform:none;transition:none}
+  }
 
-  /* ---------- hero (Концепт 2: centered condensed caps over full-color photo) ---------- */
-  .hero{position:relative;min-height:100svh;display:flex;color:var(--white);background:var(--ink);overflow:hidden;isolation:isolate}
+  /* ---------- hero (Концепт 3) ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;color:var(--paper);background:var(--ink);overflow:hidden;isolation:isolate}
   .hero-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center 30%}
-  .hero-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,10,.42) 0%,rgba(10,10,10,.30) 50%,rgba(10,10,10,.55) 100%)}
-  .hero-inner{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;width:100%;padding:clamp(5.5rem,14vh,8rem) clamp(1.25rem,4vw,3rem) clamp(3rem,8vh,5rem)}
+  .hero-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,10,.5) 0%,rgba(10,10,10,.28) 45%,rgba(10,10,10,.72) 100%)}
+
+  /* V1 — poster (concept p.6: headline bottom-left, stat cross top-right) */
+  .hero-v1{display:flex;flex-direction:column;justify-content:flex-end;width:100%;padding:clamp(1.25rem,4vw,3rem);padding-bottom:clamp(2.5rem,6vw,4.5rem)}
+  .hero-v1 h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,7.2vw,5.6rem);line-height:1.04;letter-spacing:-.01em;text-transform:uppercase;max-width:16ch}
+  .hero-v1 .sub{margin-top:var(--space-md);font-size:1.05rem;font-weight:500;color:rgba(255,255,255,.88);max-width:36ch;text-wrap:pretty}
+  .hero-v1 .hero-cta{margin-top:var(--space-lg)}
+  .stat-cross{position:absolute;top:clamp(5rem,12vh,7.5rem);right:clamp(1.25rem,4vw,3rem);display:grid;grid-template-columns:1fr 1fr;width:min(21rem,42vw);font-size:.95rem;font-weight:500;line-height:1.35}
+  .stat-cross div{padding:1.1rem 1.25rem}
+  .stat-cross div:nth-child(1),.stat-cross div:nth-child(2){border-bottom:1px solid var(--paper-20)}
+  .stat-cross div:nth-child(odd){border-right:1px solid var(--paper-20)}
+
+  /* V2 — statement (concept p.5: centered, parenthetical eyebrow) */
+  .hero-v2{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;width:100%;padding:clamp(5.5rem,14vh,8rem) clamp(1.25rem,4vw,3rem) clamp(3rem,8vh,5rem)}
   .eyebrow{font-size:.95rem;font-weight:500;color:rgba(255,255,255,.85)}
-  .hero h1{font-size:clamp(3rem,9.5vw,6rem);line-height:.98;margin-top:var(--space-sm);text-shadow:0 2px 40px rgba(0,0,0,.25)}
-  .hero-cols{margin-top:var(--space-lg);display:flex;gap:clamp(1.5rem,6vw,5rem);justify-content:center;flex-wrap:wrap;font-size:.98rem;font-weight:500;line-height:1.55}
-  .hero-cols p{max-width:30ch}
-  .hero-cta{margin-top:var(--space-lg)}
-  .services-line{margin-top:var(--space-md);font-weight:600;font-size:clamp(.85rem,1.6vw,1rem);letter-spacing:.08em;text-transform:uppercase}
+  .hero-v2 h1{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,7.5vw,5.8rem);line-height:1.06;letter-spacing:-.01em;text-transform:uppercase;margin-top:var(--space-sm)}
+  .hero-v2 .services-line{margin-top:var(--space-md);font-family:var(--display);font-weight:500;font-size:clamp(.85rem,1.7vw,1.05rem);letter-spacing:.04em;text-transform:uppercase}
+  .hero-v2 .mission{margin-top:var(--space-md);font-size:1.1rem;color:rgba(255,255,255,.9);max-width:50ch;text-wrap:balance}
+  .hero-v2 .statline{margin-top:var(--space-sm);font-weight:600;font-size:1rem}
+  .hero-v2 .hero-cta{margin-top:var(--space-lg)}
   [hidden]{display:none !important}
 
   /* ---------- trust strip: logos only ---------- */
@@ -68,52 +80,51 @@
 
   /* ---------- section scaffolding ---------- */
   .section{padding-block:var(--space-xl)}
-  .sec-title{font-size:clamp(2.2rem,5.5vw,4rem);line-height:1.02}
+  .sec-title{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,4vw,3.2rem);line-height:1.1;text-transform:uppercase;letter-spacing:-.005em}
   .sec-intro{margin-top:var(--space-md);font-size:1.1rem;max-width:58ch}
 
-  /* ---------- stats grid ---------- */
-  .stats{margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink-15);background:var(--white)}
+  /* ---------- stats grid (hairline swiss table) ---------- */
+  .stats{margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink-15)}
   .stat{padding:clamp(1.25rem,3vw,2.25rem);border-right:1px solid var(--ink-15);border-bottom:1px solid var(--ink-15);min-height:9.5rem;display:flex;flex-direction:column;justify-content:space-between;gap:.75rem}
   .stat:nth-child(3n){border-right:0}
   .stat:nth-child(n+4){border-bottom:0}
-  .stat b{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1;font-variant-numeric:tabular-nums}
+  .stat b{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4.4vw,3.4rem);line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
   .stat span{font-size:.92rem;font-weight:500;color:var(--ink-60);line-height:1.4}
   .stat small{display:block;font-size:.8rem;color:var(--ink-60);margin-top:.15rem}
-  .stat-accent{background:var(--ink);color:var(--white)}
+  .stat-accent{background:var(--ink);color:var(--paper)}
   .stat-accent span,.stat-accent small{color:var(--paper-70)}
 
-  /* ---------- carpetman (producer project) ---------- */
-  .carpet{background:var(--white);border-block:1px solid var(--ink-15)}
+  /* ---------- carpetman (dark, photo beside description, chart below) ---------- */
+  .carpet{background:var(--ink);color:var(--paper)}
   .carpet-inner{padding-block:var(--space-xl);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
-  .carpet h2{font-size:clamp(2.6rem,7vw,5rem);line-height:1}
-  .carpet .narrative{margin-top:var(--space-md);font-size:1.12rem;line-height:1.7;max-width:54ch}
+  .carpet h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5.5vw,4.2rem);text-transform:uppercase;line-height:1.05}
+  .carpet .narrative{margin-top:var(--space-md);font-size:1.12rem;line-height:1.7;max-width:54ch;color:rgba(255,255,255,.88)}
   .carpet-photo{aspect-ratio:4/5;object-fit:cover;width:100%}
-  .carpet-stats{margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));border-top:1px solid var(--ink-15)}
+  .carpet-stats{margin-top:var(--space-lg);display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));border-top:1px solid var(--paper-20)}
   .carpet-stats div{padding:1.1rem 1rem 0 0}
-  .carpet-stats b{font-family:var(--display);font-weight:400;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.1;display:block}
-  .carpet-stats span{font-size:.85rem;color:var(--ink-60);line-height:1.35;display:block;margin-top:.35rem}
+  .carpet-stats b{font-family:var(--display);font-weight:800;font-size:clamp(1.2rem,2.4vw,1.9rem);line-height:1.1;display:block}
+  .carpet-stats span{font-size:.85rem;color:var(--paper-70);line-height:1.35;display:block;margin-top:.35rem}
   .chart-block{padding-bottom:var(--space-xl)}
-  .chart-block img{width:100%;border:1px solid var(--ink-15);border-radius:8px}
-  .chart-block figcaption{margin-top:.7rem;font-size:.88rem;color:var(--ink-60)}
+  .chart-block img{width:100%;border:1px solid var(--paper-20);border-radius:8px}
+  .chart-block figcaption{margin-top:.7rem;font-size:.88rem;color:var(--paper-70)}
 
   /* ---------- services ---------- */
   .svc-list{margin-top:var(--space-lg);display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(2rem,5vw,4.5rem)}
   .svc{padding-block:1.1rem;border-bottom:1px solid var(--ink-15);display:flex;gap:1rem;align-items:baseline}
   .svc b{font-weight:600;font-size:1.02rem;white-space:nowrap}
   .svc span{color:var(--ink-60);font-size:.95rem}
-  .spotlight{margin-top:var(--space-lg);background:var(--ink);color:var(--white);padding:clamp(1.75rem,4vw,3rem);border-radius:8px}
-  .spotlight h3{font-family:var(--display);font-weight:400;font-size:clamp(1.4rem,3vw,2.2rem);text-transform:uppercase}
+  .spotlight{margin-top:var(--space-lg);background:var(--ink);color:var(--paper);padding:clamp(1.75rem,4vw,3rem)}
+  .spotlight h3{font-family:var(--display);font-weight:800;font-size:clamp(1.2rem,2.6vw,1.9rem);text-transform:uppercase;letter-spacing:.01em}
   .spotlight p{margin-top:var(--space-sm);font-size:1.05rem;line-height:1.65;max-width:62ch;color:rgba(255,255,255,.88)}
   .spotlight ul{margin-top:var(--space-md);list-style:none;display:flex;flex-wrap:wrap;gap:.6rem 2.2rem;font-weight:600;font-size:.95rem}
-  .spotlight li{border-top:1px solid var(--paper-25);padding-top:.6rem}
+  .spotlight li{border-top:1px solid var(--paper-20);padding-top:.6rem}
 
   /* ---------- achievements ---------- */
   .ach-framing{margin-top:var(--space-sm);font-size:1.08rem;color:var(--ink-60);max-width:52ch}
   .ach{margin-top:var(--space-lg);border-top:1px solid var(--ink-15)}
   .ach-row{display:grid;grid-template-columns:minmax(12rem,18rem) 1fr;gap:1rem clamp(1.5rem,4vw,3.5rem);padding-block:clamp(1.4rem,3vw,2.2rem);border-bottom:1px solid var(--ink-15)}
-  .ach-row h3{font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.15;text-transform:uppercase}
+  .ach-row h3{font-family:var(--display);font-weight:800;font-size:clamp(1.05rem,2.1vw,1.5rem);line-height:1.25;text-transform:uppercase}
   .ach-row p{font-size:1.02rem;max-width:60ch;align-self:center}
-  /* cover strip inside the platforms row */
   .covers{grid-column:1/-1;display:flex;gap:.9rem;overflow-x:auto;padding-top:.5rem;scrollbar-width:thin}
   .covers img,.covers .cover-slot{width:120px;height:120px;object-fit:cover;border-radius:10px;flex:none}
   .cover-slot{border:1px dashed var(--ink-15);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--ink-60);text-align:center;padding:.5rem}
@@ -122,31 +133,27 @@
   .about p{font-weight:500;font-size:clamp(1.25rem,2.6vw,1.85rem);line-height:1.5;max-width:36em;text-wrap:pretty}
 
   /* ---------- contact ---------- */
-  .contact{background:var(--ink);color:var(--white)}
+  .contact{background:var(--ink);color:var(--paper)}
   .contact-inner{padding-block:var(--space-xl);display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem)}
-  .contact h2{font-size:clamp(2.8rem,7vw,5.2rem);line-height:.98}
+  .contact h2{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.02;text-transform:uppercase}
   .contact .invite{margin-top:var(--space-md);font-size:1.1rem;color:var(--paper-70);max-width:38ch}
   .field{display:block;margin-bottom:1.4rem}
   .field span{display:block;font-size:.88rem;font-weight:600;letter-spacing:.03em;margin-bottom:.45rem}
-  .field input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--paper-25);color:var(--white);font:inherit;font-size:1.05rem;padding:.55rem 0;border-radius:0;transition:border-color .3s var(--ease)}
+  .field input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--paper-20);color:var(--paper);font:inherit;font-size:1.05rem;padding:.55rem 0;border-radius:0;transition:border-color .3s var(--ease)}
   .field input::placeholder{color:rgba(255,255,255,.55)}
-  .field input:focus{outline:none;border-bottom-color:var(--white)}
-  .field input:focus-visible{outline:2px solid var(--white);outline-offset:4px}
+  .field input:focus{outline:none;border-bottom-color:var(--paper)}
+  .field input:focus-visible{outline:2px solid var(--paper);outline-offset:4px}
   .direct{margin-top:var(--space-md);font-size:.95rem;color:var(--paper-70)}
-  .direct b{color:var(--white)}
-  footer{border-top:1px solid var(--paper-25)}
+  .direct b{color:var(--paper)}
+  footer{border-top:1px solid var(--paper-20)}
   .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;padding-block:1.5rem;font-size:.88rem;color:var(--paper-70)}
-  .foot .logo{font-size:1rem}
+  .foot .logo{font-size:1rem;color:var(--paper)}
 
   /* ---------- variant toggle (review only) ---------- */
-  .vtoggle{position:fixed;bottom:1.25rem;right:1.25rem;z-index:var(--z-toggle);display:flex;gap:.25rem;background:var(--white);border:1px solid var(--ink-15);border-radius:7px;padding:.3rem;box-shadow:0 6px 24px rgba(0,0,0,.18);font-size:.82rem;font-weight:600}
-  .vtoggle button{border:0;background:transparent;font:inherit;padding:.45em 1em;border-radius:5px;cursor:pointer;color:var(--ink-60)}
-  .vtoggle button[aria-pressed="true"]{background:var(--ink);color:var(--white)}
+  .vtoggle{position:fixed;bottom:1.25rem;right:1.25rem;z-index:var(--z-toggle);display:flex;gap:.25rem;background:var(--paper);border:1px solid var(--ink-15);border-radius:999px;padding:.3rem;box-shadow:0 6px 24px rgba(0,0,0,.18);font-size:.82rem;font-weight:600}
+  .vtoggle button{border:0;background:transparent;font:inherit;padding:.45em 1em;border-radius:999px;cursor:pointer;color:var(--ink-60)}
+  .vtoggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
   .vtoggle button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-  }
 
   /* ---------- responsive ---------- */
   @media (max-width:840px){
@@ -160,13 +167,16 @@
     .carpet-inner{grid-template-columns:1fr}
     .carpet-photo{aspect-ratio:3/2}
     .partners{justify-content:flex-start}
+    .stat-cross{position:static;width:100%;max-width:24rem;margin-bottom:var(--space-lg)}
+    .hero-v1{justify-content:flex-end;padding-top:6.5rem}
   }
   @media (max-width:560px){
     .ach-row{grid-template-columns:1fr;gap:.5rem}
+    .partners{gap:1rem 1.6rem}
     .vtoggle{bottom:.75rem;right:.75rem;font-size:.72rem;padding:.2rem}
     .vtoggle button{padding:.4em .8em}
-    .hero-inner{padding-bottom:5.5rem}
-    .hero-cols{gap:1rem;flex-direction:column;align-items:center}
+    .hero-v1{padding-bottom:5.5rem}
+    .hero-v2{padding-bottom:5.5rem}
   }
 </style>
 </head>
@@ -183,26 +193,26 @@
   <div class="hero-scrim" aria-hidden="true"></div>
 
   <!-- V1 · Poster -->
-  <div class="hero-inner" id="heroV1">
-    <p class="eyebrow">(Music company)</p>
-    <h1 class="display">We make<br>records travel.</h1>
-    <div class="hero-cols">
-      <p>Label, distribution, and marketing under one roof.</p>
-      <p>140+ artists. 16B+ streams.<br>Eurovision winners. Platinum hits.</p>
+  <div class="hero-v1" id="heroV1">
+    <div class="stat-cross" aria-label="Key numbers">
+      <div>140+<br>artists</div>
+      <div>Eurovision<br>winners</div>
+      <div>16&nbsp;billion+<br>streams</div>
+      <div>Platinum<br>hits</div>
     </div>
-    <div class="hero-cta"><a class="btn btn-white" href="#contact">Talk to us</a></div>
+    <h1>We make<br>records travel.</h1>
+    <p class="sub">Label, distribution, and marketing under one roof.</p>
+    <div class="hero-cta"><a class="btn btn-paper" href="#contact">Talk to us</a></div>
   </div>
 
   <!-- V2 · Statement -->
-  <div class="hero-inner" id="heroV2" hidden>
+  <div class="hero-v2" id="heroV2" hidden>
     <p class="eyebrow">(Music company)</p>
-    <h1 class="display">More than<br>a label.</h1>
+    <h1>More than<br>a label.</h1>
     <p class="services-line">Distribution. Marketing. Publishing. Artist development.</p>
-    <div class="hero-cols">
-      <p>We study what the world streams and put our artists there early.</p>
-      <p>140+ artists.<br>16B+ streams and counting.</p>
-    </div>
-    <div class="hero-cta"><a class="btn btn-white" href="#contact">Get in touch</a></div>
+    <p class="mission">We study what the world streams and put our artists there early.</p>
+    <p class="statline">140+ artists. 16B+ streams and counting.</p>
+    <div class="hero-cta"><a class="btn btn-paper" href="#contact">Get in touch</a></div>
   </div>
 </section>
 
@@ -221,7 +231,7 @@
 <!-- ============ STATS ============ -->
 <section class="section" aria-labelledby="stats-title">
   <div class="wrap">
-    <h2 class="sec-title display" id="stats-title">By the numbers</h2>
+    <h2 class="sec-title" id="stats-title">By the numbers</h2>
     <div class="stats">
       <div class="stat stat-accent"><b>16B+</b><span>streams</span></div>
       <div class="stat"><b>400+</b><span>hits</span></div>
@@ -233,12 +243,12 @@
   </div>
 </section>
 
-<!-- ============ CARPETMAN — producer project, built in-house ============ -->
+<!-- ============ CARPETMAN ============ -->
 <section class="carpet" aria-labelledby="carpet-title">
   <div class="wrap carpet-inner">
     <div>
-      <h2 class="display" id="carpet-title">Carpetman</h2>
-      <p class="narrative">Carpetman is an ENKO producer project — an artist built in-house from day one. Writing, production, and promo all happen under our roof, and the growth curve shows what that machine does at full speed: from under 5M to 17M+ Spotify monthly listeners in six months, half a billion views, and &ldquo;Feel So Cold&rdquo; at #11 on Shazam&rsquo;s global chart.</p>
+      <h2 id="carpet-title">Carpetman</h2>
+      <p class="narrative">We&rsquo;ve worked with Carpetman since his very first release. The talent is all his — he writes and produces every track himself. Our job was making the world notice: strategic marketing, the right pitching, distribution done properly. The growth came organically — from under 5M to 17M+ Spotify monthly listeners in six months, half a billion views, and &ldquo;Feel So Cold&rdquo; at #11 on Shazam&rsquo;s global chart.</p>
       <div class="carpet-stats">
         <div><b>500M</b><span>views</span></div>
         <div><b>126.5M</b><span>Spotify streams</span></div>
@@ -248,7 +258,7 @@
         <div><b>#11</b><span>Shazam Global — &ldquo;Feel So Cold&rdquo;</span></div>
       </div>
     </div>
-    <img class="carpet-photo" src="assets/carpetman-red.jpg" alt="Carpetman with an acoustic guitar against a red backdrop">
+    <img class="carpet-photo" src="assets/carpetman-hood.jpg" alt="Carpetman in his carpet-pattern mask and hood, looking up under a concrete skylight">
   </div>
   <figure class="wrap chart-block">
     <img src="assets/carpetman-spotify-6m.png" alt="Spotify for Artists chart: Carpetman's monthly listeners growing from about 4.5 million in February 2026 to over 17 million in July 2026" loading="lazy">
@@ -259,7 +269,7 @@
 <!-- ============ SERVICES ============ -->
 <section class="section" aria-labelledby="svc-title">
   <div class="wrap">
-    <h2 class="sec-title display" id="svc-title">What we do</h2>
+    <h2 class="sec-title" id="svc-title">What we do</h2>
     <p class="sec-intro">Most artists at your level are stitching this together from five different vendors. We keep it in one building.</p>
     <div class="svc-list">
       <div class="svc"><b>Distribution</b><span>all major platforms, markets worldwide.</span></div>
@@ -284,7 +294,7 @@
 <!-- ============ ACHIEVEMENTS ============ -->
 <section class="section" aria-labelledby="ach-title" style="padding-top:0">
   <div class="wrap">
-    <h2 class="sec-title display" id="ach-title">We make artists visible.</h2>
+    <h2 class="sec-title" id="ach-title">We make artists visible.</h2>
     <p class="ach-framing">No guarantees in this business, and no two artists get the same plan. This is where the work has landed so far.</p>
     <div class="ach">
       <div class="ach-row">
@@ -326,7 +336,7 @@
 <section class="contact" id="contact" aria-labelledby="contact-title">
   <div class="wrap contact-inner">
     <div>
-      <h2 class="display" id="contact-title">Talk<br>to us</h2>
+      <h2 id="contact-title">Talk<br>to us</h2>
       <p class="invite">Send over your project and we&rsquo;ll tell you, straight, what we&rsquo;d do with it.</p>
     </div>
     <div>
@@ -334,7 +344,7 @@
         <label class="field"><span>Name</span><input type="text" name="name" autocomplete="name" required placeholder="Your name"></label>
         <label class="field"><span>Artist name or Spotify link</span><input type="text" name="artist" required placeholder="Artist name or link"></label>
         <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" required placeholder="you@email.com"></label>
-        <button class="btn btn-white" type="submit">Send it</button>
+        <button class="btn btn-paper" type="submit">Send it</button>
         <p class="direct">Prefer email? Write us direct: <b>hello@enkomusic.com</b> <em>(address to be confirmed — placeholder)</em></p>
       </form>
     </div>
@@ -356,7 +366,6 @@
 
 <script>
   document.documentElement.classList.add('js');
-  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* hero variant toggle */
   var v1 = document.getElementById('heroV1'), v2 = document.getElementById('heroV2');
