@@ -69,8 +69,9 @@
   [hidden]{display:none !important}
   /* partner logos: small translucent white row at hero bottom */
   .hero-partners{display:flex;flex-wrap:wrap;gap:1rem clamp(1.5rem,4vw,3rem);align-items:center;margin-top:var(--space-lg);padding-top:1rem;border-top:1px solid var(--paper-14)}
-  .hero-partners img{height:16px;width:auto;filter:invert(1) grayscale(1) brightness(1.8);opacity:.55}
-  .hero-partners img.tall{height:26px}
+  .hero-partners img{height:18px;width:auto;opacity:.72;mix-blend-mode:screen}
+  .hero-partners img.tall{height:32px}
+  .hero-partners img.inv{filter:invert(1) grayscale(1) brightness(1.6)}
 
   /* ---------- sections (dark base, color moments) ---------- */
   .section{padding-block:var(--space-xl);border-top:1px solid var(--paper-14);background:radial-gradient(70rem 34rem at 85% -12%,rgba(140,180,220,.07),transparent 60%)}
@@ -198,7 +199,7 @@
 
     <!-- V1 · Poster -->
     <div class="hero-v1" id="heroV1">
-      <h1>We make<br>records travel.</h1>
+      <h1>Global music.<br>Global reach.</h1>
       <p class="sub">Distribution, marketing, and publishing under one roof.</p>
       <div class="hero-cta"><a class="btn btn-paper" href="#contact">Talk to us</a></div>
     </div>
@@ -214,10 +215,10 @@
     </div>
 
     <div class="hero-partners" aria-label="Partners">
-      <img class="tall" src="assets/logos/umg.png" alt="Universal Music Group">
-      <img src="assets/logos/sony-music-publishing.svg" alt="Sony Music Publishing">
-      <img src="assets/logos/kobalt.svg" alt="Kobalt Music">
-      <img src="assets/logos/wasserman.svg" alt="THE TEAM">
+      <img class="tall" src="assets/logos/umg-light.png" alt="Universal Music Group">
+      <img class="tall inv" src="assets/logos/sony-mp.png" alt="Sony Music Publishing">
+      <img src="assets/logos/cobalt-music.png" alt="Cobalt Music">
+      <img class="tall inv" src="assets/logos/the-team.png" alt="THE TEAM">
     </div>
   </div>
 </section>
