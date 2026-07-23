@@ -68,10 +68,11 @@
   .hero-v2 .statline{margin-top:var(--space-sm);font-weight:600;font-size:1rem}
   [hidden]{display:none !important}
   /* partner logos: small translucent white row at hero bottom */
-  .hero-partners{display:flex;flex-wrap:wrap;gap:1rem clamp(1.5rem,4vw,3rem);align-items:center;margin-top:var(--space-lg);padding-top:1rem;border-top:1px solid var(--paper-14)}
-  .hero-partners img{height:18px;width:auto;opacity:.72;mix-blend-mode:screen}
-  .hero-partners img.tall{height:32px}
+  .hero-partners{display:flex;flex-wrap:wrap;gap:1.25rem 2rem;align-items:center;justify-content:space-between;margin-top:var(--space-lg);padding-top:1.4rem;border-top:1px solid var(--paper-14)}
+  .hero-partners img{height:clamp(30px,3.4vw,52px);width:auto;opacity:.78;mix-blend-mode:screen}
+  .hero-partners img.short{height:clamp(24px,2.6vw,40px)}
   .hero-partners img.inv{filter:invert(1) grayscale(1) brightness(1.6)}
+  .cobalt-word{font-weight:600;font-size:clamp(.95rem,1.5vw,1.25rem);letter-spacing:.3em;color:rgba(255,255,255,.8);white-space:nowrap}
 
   /* ---------- sections (dark base, color moments) ---------- */
   .section{padding-block:var(--space-xl);border-top:1px solid var(--paper-14);background:radial-gradient(70rem 34rem at 85% -12%,rgba(140,180,220,.07),transparent 60%)}
@@ -215,10 +216,10 @@
     </div>
 
     <div class="hero-partners" aria-label="Partners">
-      <img class="tall" src="assets/logos/umg-light.png" alt="Universal Music Group">
-      <img class="tall inv" src="assets/logos/sony-mp.png" alt="Sony Music Publishing">
-      <img src="assets/logos/cobalt-music.png" alt="Cobalt Music">
-      <img class="tall inv" src="assets/logos/the-team.png" alt="THE TEAM">
+      <img src="assets/logos/umg-light.png" alt="Universal Music Group">
+      <img class="inv" src="assets/logos/sony-mp.png" alt="Sony Music Publishing">
+      <span class="cobalt-word" aria-label="Cobalt Music">COBALT&nbsp;MUSIC</span>
+      <img class="short inv" src="assets/logos/the-team.png" alt="THE TEAM">
     </div>
   </div>
 </section>
@@ -321,11 +322,13 @@
         <h3>Platform programs</h3>
         <p>Our artists front the platforms&rsquo; own campaigns: Apple Music Sessions, Apple Music Up Next, and Spotify EQUAL. Banners, covers, playlists, special sessions, and billboards over Times Square. Eight ENKO artists have fronted Spotify&rsquo;s EQUAL program alone.</p>
         <div class="covers" aria-label="Campaign covers">
-          <div class="cover-slot">EQUAL cover</div>
-          <div class="cover-slot">Apple Music Sessions</div>
-          <div class="cover-slot">Up Next</div>
-          <div class="cover-slot">editorial cover</div>
-          <div class="cover-slot">Times Square</div>
+          <div class="cover-slot">Spotify EQUAL</div>
+          <img src="assets/covers/hot-hits.jpg" alt="Spotify Hot Hits Ukraine editorial cover" loading="lazy">
+          <div class="cover-slot">Народження зірки · Лея</div>
+          <div class="cover-slot">Віральні хіти</div>
+          <div class="cover-slot">Sessions · alyona alyona &amp; Jerry Heil</div>
+          <div class="cover-slot">ALPHA</div>
+          <div class="cover-slot">Новинки щоп&rsquo;ятниці · Carpetman</div>
         </div>
       </div>
       <div class="ach-row">
