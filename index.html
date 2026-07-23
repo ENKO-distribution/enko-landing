@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ENKO — Music Company</title>
+<title>ENKO · Music Company</title>
 <meta name="description" content="ENKO is a full-service music company: distribution, publishing, and marketing under one roof. 140+ artists. 19.5B+ streams.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0A0A'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' fill='%23fff' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,8 @@
   :root{
     --ink:#0A0A0A;
     --paper:#FFFFFF;
-    --red:#A62B12;
+    --blue-1:#CFE3F7;
+    --blue-2:#A9C9E8;
     --paper-88:rgba(255,255,255,.88);
     --paper-70:rgba(255,255,255,.72);
     --paper-20:rgba(255,255,255,.22);
@@ -72,8 +73,12 @@
   .hero-partners img.tall{height:26px}
 
   /* ---------- sections (dark base, color moments) ---------- */
-  .section{padding-block:var(--space-xl);border-top:1px solid var(--paper-14)}
-  .section-red{background:var(--red);border-top:0}
+  .section{padding-block:var(--space-xl);border-top:1px solid var(--paper-14);background:radial-gradient(70rem 34rem at 85% -12%,rgba(140,180,220,.07),transparent 60%)}
+  .section-blue{border-top:0;color:var(--ink);
+    --paper-88:rgba(10,10,10,.85);--paper-70:rgba(10,10,10,.62);--paper-20:rgba(10,10,10,.2);
+    background:
+      repeating-linear-gradient(135deg,rgba(10,10,10,.028) 0 2px,transparent 2px 16px),
+      linear-gradient(165deg,var(--blue-1) 0%,var(--blue-2) 100%)}
   .sec-title{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,4vw,3.2rem);line-height:1.1;text-transform:uppercase}
   .sec-intro{margin-top:var(--space-md);font-size:1.1rem;max-width:58ch;color:var(--paper-88)}
 
@@ -240,19 +245,19 @@
 </section>
 
 <!-- ============ CARPETMAN (red block) ============ -->
-<section class="section-red" id="carpetman" aria-labelledby="carpet-title">
+<section class="section-blue" id="carpetman" aria-labelledby="carpet-title">
   <div class="wrap carpet-inner">
     <div>
       <span class="badge">Full management</span>
       <h2 id="carpet-title">Carpetman</h2>
-      <p class="narrative">We&rsquo;ve worked with Carpetman since his very first release. The talent is all his — he writes and produces every track himself. Our job was making the world notice: strategic marketing, the right pitching, distribution done properly. The growth came organically — from under 5M to 17M+ Spotify monthly listeners in six months, half a billion views, and &ldquo;Feel So Cold&rdquo; at #11 on Shazam&rsquo;s global chart.</p>
+      <p class="narrative">We&rsquo;ve worked with Carpetman since his very first release. The talent is all his: he writes and produces every track himself. Our job was making the world notice, with strategic marketing, the right pitching, and distribution done properly. The growth came organically: from under 5M to 17M+ Spotify monthly listeners in six months, half a billion views, and &ldquo;Feel So Cold&rdquo; at #11 on Shazam&rsquo;s global chart.</p>
       <div class="carpet-stats">
         <div><b>500M</b><span>views</span></div>
         <div><b>126.5M</b><span>Spotify streams</span></div>
         <div><b>17M+</b><span>Spotify monthly listeners</span></div>
         <div><b>34.2M</b><span>Apple Music streams</span></div>
         <div><b>15.8M</b><span>monthly audience on YouTube</span></div>
-        <div><b>#11</b><span>Shazam Global — &ldquo;Feel So Cold&rdquo;</span></div>
+        <div><b>#11</b><span>Shazam Global · &ldquo;Feel So Cold&rdquo;</span></div>
       </div>
     </div>
     <img class="carpet-photo" src="assets/carpetman-hood.jpg" alt="Carpetman in his carpet-pattern mask and hood, looking up under a concrete skylight">
@@ -268,13 +273,13 @@
       <div class="artist"><img class="artist-photo" src="assets/carpetman-hood.jpg" alt="Carpetman"><b>Carpetman</b><span>Full management</span></div>
       <div class="artist"><div class="artist-slot" aria-hidden="true">K</div><b>Kalush Orchestra</b><span>Eurovision 2022 winners · ex-full management · now distribution</span></div>
       <div class="artist"><div class="artist-slot" aria-hidden="true">A</div><b>alyona alyona</b><span>Eurovision 2024 Top&nbsp;3 · ex-full management · now distribution &amp; publishing</span></div>
-      <div class="artist"><div class="artist-slot" aria-hidden="true">S</div><b>Shugar</b><span>Promo, distribution &amp; publishing</span></div>
+      <div class="artist"><div class="artist-slot" aria-hidden="true">Ш</div><b>Шугар</b><span>Promo, distribution &amp; publishing</span></div>
       <div class="artist"><div class="artist-slot" aria-hidden="true">M</div><b>MamaRika</b><span>Promo &amp; distribution</span></div>
       <div class="artist"><div class="artist-slot" aria-hidden="true">K</div><b>KOLA</b><span>Distribution</span></div>
       <div class="artist"><div class="artist-slot" aria-hidden="true">A</div><b>AIRA</b><span>Distribution &amp; promo</span></div>
       <div class="artist"><div class="artist-slot" aria-hidden="true">L</div><b>LÉMKA</b><span>Distribution &amp; promo</span></div>
     </div>
-    <p class="roster-note">Part of the roster — the rest live on our Instagram. <!-- INSTAGRAM LINK PLACEHOLDER --></p>
+    <p class="roster-note">Only a small part of our roster. The rest live on our Instagram. <!-- INSTAGRAM LINK PLACEHOLDER --></p>
   </div>
 </section>
 
@@ -282,7 +287,6 @@
 <section class="section" id="services" aria-labelledby="svc-title">
   <div class="wrap">
     <h2 class="sec-title" id="svc-title">What we do</h2>
-    <p class="sec-intro">Most artists at your level are stitching this together from five different vendors. We keep it in one building.</p>
     <div class="svc-cols">
       <div class="svc-col">
         <h3>Distribution</h3>
@@ -291,30 +295,30 @@
       <div class="svc-col">
         <h3>Marketing</h3>
         <p>Paid campaigns on Facebook, TikTok, and YouTube, a promo plan for every release, and influencer campaigns end to end. It&rsquo;s the reason the numbers on this page look the way they do.</p>
-        <small>Run with our partners at <a href="https://lyra.promo/en" rel="noopener">LIRA</a>.</small>
+        <small>Run with our partners at <a href="https://lyra.promo/en" rel="noopener">LYRA</a>.</small>
       </div>
       <div class="svc-col">
         <h3>Publishing</h3>
-        <p>With Sony Music Publishing and Kobalt: your works registered, tracked, and collected worldwide. Contracts read before you sign.</p>
+        <p>With Sony Music Publishing and Kobalt: your works registered, tracked, and collected worldwide.</p>
       </div>
     </div>
-    <p class="svc-footnote">Legal support and strategy sessions come standard — a sit-down on the plan whenever you need one.</p>
+    <p class="svc-footnote">Legal support and strategy sessions come standard, with a sit-down on the plan whenever you need one.</p>
   </div>
 </section>
 
 <!-- ============ VISIBLE (red block) ============ -->
-<section class="section-red" aria-labelledby="ach-title">
+<section class="section-blue" aria-labelledby="ach-title">
   <div class="wrap" style="padding-block:var(--space-xl)">
     <h2 class="sec-title" id="ach-title">We make artists visible.</h2>
-    <p class="ach-framing">No guarantees in this business — just a plan built for each artist. This is where the work has landed so far.</p>
+    <p class="ach-framing">No guarantees in this business, just a plan built for each artist. This is where the work has landed so far.</p>
     <div class="ach">
       <div class="ach-row">
         <h3>Eurovision. Twice.</h3>
-        <p>The biggest music event in Europe — 160M+ viewers a year. Kalush Orchestra won it in 2022 with &ldquo;Stefania.&rdquo; alyona alyona &amp; Jerry Heil went top-3 in 2024 with &ldquo;Teresa &amp; Maria.&rdquo; Both full-management ENKO artists — our team behind everything from release to stage.</p>
+        <p>The biggest music event in Europe, watched by 160M+ people a year. Kalush Orchestra won it in 2022 with &ldquo;Stefania.&rdquo; alyona alyona &amp; Jerry Heil went top-3 in 2024 with &ldquo;Teresa &amp; Maria.&rdquo; Both were full-management ENKO artists, with our team behind everything from release to stage.</p>
       </div>
       <div class="ach-row">
         <h3>Platform programs</h3>
-        <p>Our artists front the platforms&rsquo; own campaigns — Apple Music Sessions, Apple Music Up Next, Spotify EQUAL: banners, covers, playlists, special sessions, and billboards over Times Square. Eight ENKO artists have fronted Spotify&rsquo;s EQUAL program alone.</p>
+        <p>Our artists front the platforms&rsquo; own campaigns: Apple Music Sessions, Apple Music Up Next, and Spotify EQUAL. Banners, covers, playlists, special sessions, and billboards over Times Square. Eight ENKO artists have fronted Spotify&rsquo;s EQUAL program alone.</p>
         <div class="covers" aria-label="Campaign covers">
           <div class="cover-slot">EQUAL cover</div>
           <div class="cover-slot">Apple Music Sessions</div>
@@ -329,7 +333,7 @@
       </div>
       <div class="ach-row" id="grammyRow">
         <h3>The Recording Academy</h3>
-        <p>Two of ours are inside the room where GRAMMYs are decided. ENKO founder Ivan Klymenko — producer behind Eurovision-winning &ldquo;Stefania&rdquo; — joined the Recording Academy as a Voting Member in 2026. Our artist Usein Bekirov, the Crimean Tatar jazz pianist whose works have entered first-round GRAMMY consideration three times, is a member too.</p>
+        <p>Two of ours are inside the room where GRAMMYs are decided. ENKO co-founder Ivan Klymenko, the producer behind Eurovision-winning &ldquo;Stefania,&rdquo; is a Voting Member of the Recording Academy. Our artist Usein Bekirov, the Crimean Tatar jazz pianist whose works have entered first-round GRAMMY consideration three times, is a member too.</p>
       </div>
     </div>
   </div>
