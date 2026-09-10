@@ -38,9 +38,9 @@
   /* ---------- sticky header ---------- */
   header{position:sticky;top:0;z-index:var(--z-header);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem clamp(1.25rem,4vw,3rem);background:rgba(10,10,10,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--paper-14)}
   .logo-img{height:20px;width:auto;display:block}
-  nav{display:flex;gap:clamp(1rem,2.5vw,2rem);font-size:.9rem;font-weight:500}
-  nav a{text-decoration:none;color:var(--paper-70);transition:color .25s var(--ease)}
-  nav a:hover{color:var(--paper)}
+  nav{display:flex;gap:clamp(.4rem,1vw,.75rem);font-size:.9rem;font-weight:600}
+  nav a{text-decoration:none;color:var(--paper);border:1px solid var(--paper-20);border-radius:999px;padding:.55em 1.2em;transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease)}
+  nav a:hover{background:var(--paper);color:var(--ink);transform:translateY(-2px)}
   .btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:.9rem;letter-spacing:.02em;text-decoration:none;border-radius:999px;padding:.68em 1.5em;transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease);cursor:pointer;border:1px solid transparent}
   .btn:hover{transform:translateY(-2px)}
   .btn-ghost{color:var(--paper);border-color:var(--paper-20)}
@@ -49,7 +49,7 @@
   .btn-paper:hover{background:#e8e8e8}
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .btn,.btn:hover{transform:none;transition:none}
+    .btn,.btn:hover,nav a,nav a:hover{transform:none;transition:none}
   }
 
   /* ---------- hero ---------- */
@@ -190,7 +190,7 @@
 <header>
   <a href="#" aria-label="ENKO home"><img class="logo-img" src="assets/logos/enko-white.svg" alt="ENKO"></a>
   <nav aria-label="Sections">
-    <a href="#numbers">Numbers</a>
+    <a href="#numbers">Our numbers</a>
     <a href="#carpetman">Carpetman</a>
     <a href="#artists">Artists</a>
     <a href="#services">Services</a>
