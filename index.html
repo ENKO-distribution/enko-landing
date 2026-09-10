@@ -69,9 +69,9 @@
   [hidden]{display:none !important}
   /* partner logos: small translucent white row at hero bottom */
   .hero-partners{display:flex;flex-wrap:wrap;gap:1.25rem 2rem;align-items:center;justify-content:space-between;margin-top:var(--space-lg);padding-top:1.4rem;border-top:1px solid var(--paper-14)}
-  .hero-partners img{height:clamp(30px,3.4vw,52px);width:auto;opacity:.78;mix-blend-mode:screen}
-  .hero-partners img.short{height:clamp(24px,2.6vw,40px)}
-  .hero-partners img.inv{filter:invert(1) grayscale(1) brightness(1.6)}
+  .hero-partners img{height:clamp(40px,4.8vw,72px);width:auto;opacity:.95;mix-blend-mode:screen}
+  .hero-partners img.short{height:clamp(32px,3.7vw,56px)}
+  .hero-partners img.inv{filter:invert(1) grayscale(1) brightness(1.75)}
   .cobalt-word{font-weight:600;font-size:clamp(.95rem,1.5vw,1.25rem);letter-spacing:.3em;color:rgba(255,255,255,.8);white-space:nowrap}
 
   /* ---------- sections (dark base, color moments) ---------- */
@@ -79,8 +79,12 @@
   .section-blue{border-top:0;color:var(--ink);
     --paper-88:rgba(10,10,10,.85);--paper-70:rgba(10,10,10,.62);--paper-20:rgba(10,10,10,.2);
     background:
-      repeating-linear-gradient(135deg,rgba(10,10,10,.028) 0 2px,transparent 2px 16px),
-      linear-gradient(165deg,var(--blue-1) 0%,var(--blue-2) 100%)}
+      radial-gradient(44rem 30rem at 12% 6%,rgba(255,255,255,.6),transparent 62%),
+      radial-gradient(34rem 24rem at 86% 26%,rgba(255,255,255,.34),transparent 58%),
+      radial-gradient(26rem 20rem at 42% 58%,rgba(255,255,255,.22),transparent 60%),
+      radial-gradient(52rem 38rem at 82% 100%,rgba(23,68,134,.5),transparent 64%),
+      radial-gradient(44rem 32rem at 0% 86%,rgba(37,88,160,.42),transparent 62%),
+      linear-gradient(160deg,#DCEBFB 0%,#A9C9E8 48%,#6E97CC 100%)}
   .sec-title{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,4vw,3.2rem);line-height:1.1;text-transform:uppercase}
   .sec-intro{margin-top:var(--space-md);font-size:1.1rem;max-width:58ch;color:var(--paper-88)}
 
@@ -127,7 +131,11 @@
   .svc-col small a{color:var(--paper)}
   .svc-footnote{margin-top:var(--space-lg);font-size:.95rem;color:var(--paper-70)}
 
-  /* visible (red block) */
+  /* visible: photo banner (hero-style), rows stay on the blue block below */
+  .section-photo{position:relative;display:flex;align-items:flex-end;min-height:clamp(360px,56svh,540px);border-top:0;isolation:isolate;color:var(--paper);padding-block:var(--space-lg)}
+  .section-photo::before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/eurovision-2022.jpg") center 30%/cover no-repeat}
+  .section-photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,10,.5) 0%,rgba(10,10,10,.22) 45%,rgba(10,10,10,.78) 100%)}
+  .section-photo>.wrap{width:100%}
   .ach-framing{margin-top:var(--space-sm);font-size:1.08rem;color:var(--paper-88);max-width:52ch}
   .ach{margin-top:var(--space-lg);border-top:1px solid var(--paper-20)}
   .ach-row{display:grid;grid-template-columns:minmax(12rem,18rem) 1fr;gap:1rem clamp(1.5rem,4vw,3.5rem);padding-block:clamp(1.4rem,3vw,2.2rem);border-bottom:1px solid var(--paper-20)}
@@ -141,14 +149,12 @@
   .contact-inner{padding-block:var(--space-xl);display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem)}
   .contact h2{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.02;text-transform:uppercase}
   .contact .invite{margin-top:var(--space-md);font-size:1.1rem;color:var(--paper-70);max-width:38ch}
-  .field{display:block;margin-bottom:1.4rem}
-  .field span{display:block;font-size:.88rem;font-weight:600;letter-spacing:.03em;margin-bottom:.45rem}
-  .field input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--paper-20);color:var(--paper);font:inherit;font-size:1.05rem;padding:.55rem 0;border-radius:0;transition:border-color .3s var(--ease)}
-  .field input::placeholder{color:rgba(255,255,255,.55)}
-  .field input:focus{outline:none;border-bottom-color:var(--paper)}
-  .field input:focus-visible{outline:2px solid var(--paper);outline-offset:4px}
-  .direct{margin-top:var(--space-md);font-size:.95rem;color:var(--paper-70)}
-  .direct b{color:var(--paper)}
+  .section-contact{position:relative;isolation:isolate;border-top:0}
+  .section-contact::before{content:"";position:absolute;inset:0;z-index:-2;background:url("assets/contact-stage.jpg") center 38%/cover no-repeat}
+  .section-contact::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,10,.78) 0%,rgba(10,10,10,.55) 48%,rgba(10,10,10,.88) 100%)}
+  .contact-side{display:flex;align-items:center}
+  .contact-email{font-family:var(--display);font-weight:800;font-size:clamp(1rem,1.9vw,1.45rem);letter-spacing:-.01em;color:var(--paper);text-decoration:none;border-bottom:3px solid var(--paper);padding-bottom:.18em;overflow-wrap:anywhere;transition:opacity .3s var(--ease)}
+  .contact-email:hover{opacity:.72}
   footer{border-top:1px solid var(--paper-14)}
   .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;padding-block:1.5rem;font-size:.88rem;color:var(--paper-70)}
 
@@ -271,15 +277,14 @@
   <div class="wrap">
     <h2 class="sec-title" id="artists-title">Our artists</h2>
     <div class="roster">
-      <!-- PHOTO PLACEHOLDERS: replace .artist-slot divs with <img class="artist-photo" src="assets/artists/NAME.jpg" alt="NAME"> -->
-      <div class="artist"><img class="artist-photo" src="assets/carpetman-hood.jpg" alt="Carpetman"><b>Carpetman</b><span>Full management</span></div>
-      <div class="artist"><div class="artist-slot" aria-hidden="true">K</div><b>Kalush Orchestra</b><span>Eurovision 2022 winners · ex-full management · now distribution</span></div>
-      <div class="artist"><div class="artist-slot" aria-hidden="true">A</div><b>alyona alyona</b><span>Eurovision 2024 Top&nbsp;3 · ex-full management · now distribution &amp; publishing</span></div>
-      <div class="artist"><div class="artist-slot" aria-hidden="true">Ш</div><b>Шугар</b><span>Promo, distribution &amp; publishing</span></div>
-      <div class="artist"><div class="artist-slot" aria-hidden="true">M</div><b>MamaRika</b><span>Promo &amp; distribution</span></div>
-      <div class="artist"><div class="artist-slot" aria-hidden="true">K</div><b>KOLA</b><span>Distribution</span></div>
-      <div class="artist"><div class="artist-slot" aria-hidden="true">A</div><b>AIRA</b><span>Distribution &amp; promo</span></div>
-      <div class="artist"><div class="artist-slot" aria-hidden="true">L</div><b>LÉMKA</b><span>Distribution &amp; promo</span></div>
+      <div class="artist"><img class="artist-photo" src="assets/artists/carpetman.jpg" alt="Carpetman"><b>Carpetman</b><span>Full management</span></div>
+      <div class="artist"><img class="artist-photo" src="assets/artists/kalush-orchestra.jpg" alt="Kalush Orchestra" loading="lazy"><b>Kalush Orchestra</b><span>Eurovision 2022 winners · ex-full management · now distribution</span></div>
+      <div class="artist"><img class="artist-photo" src="assets/artists/alyona-alyona.jpg" alt="alyona alyona" loading="lazy"><b>alyona alyona</b><span>Eurovision 2024 Top&nbsp;3 · ex-full management · now distribution &amp; publishing</span></div>
+      <div class="artist"><img class="artist-photo" src="assets/artists/shugar.jpg" alt="Шугар" loading="lazy"><b>Шугар</b><span>Promo, distribution &amp; publishing</span></div>
+      <div class="artist"><img class="artist-photo" src="assets/artists/mamarika.jpg" alt="MamaRika" loading="lazy"><b>MamaRika</b><span>Promo &amp; distribution</span></div>
+      <div class="artist"><img class="artist-photo" src="assets/artists/kola.jpg" alt="KOLA" loading="lazy"><b>KOLA</b><span>Distribution</span></div>
+      <div class="artist"><img class="artist-photo" src="assets/artists/aira.jpg" alt="AIRA" loading="lazy"><b>AIRA</b><span>Distribution &amp; promo</span></div>
+      <div class="artist"><img class="artist-photo" src="assets/artists/lemka.jpg" alt="LÉMKA" loading="lazy"><b>LÉMKA</b><span>Distribution &amp; promo</span></div>
     </div>
     <p class="roster-note">Only a small part of our roster. The rest live on our Instagram. <!-- INSTAGRAM LINK PLACEHOLDER --></p>
   </div>
@@ -308,12 +313,16 @@
   </div>
 </section>
 
-<!-- ============ VISIBLE (red block) ============ -->
-<section class="section-blue" aria-labelledby="ach-title">
-  <div class="wrap" style="padding-block:var(--space-xl)">
+<!-- ============ VISIBLE: photo banner + blue achievements block ============ -->
+<section class="section-photo" aria-labelledby="ach-title">
+  <div class="wrap">
     <h2 class="sec-title" id="ach-title">We make artists visible.</h2>
     <p class="ach-framing">No guarantees in this business, just a plan built for each artist. This is where the work has landed so far.</p>
-    <div class="ach">
+  </div>
+</section>
+<section class="section-blue" aria-labelledby="ach-title">
+  <div class="wrap" style="padding-block:var(--space-xl)">
+    <div class="ach" style="margin-top:0">
       <div class="ach-row">
         <h3>Eurovision. Twice.</h3>
         <p>The biggest music event in Europe, watched by 160M+ people a year. Kalush Orchestra won it in 2022 with &ldquo;Stefania.&rdquo; alyona alyona &amp; Jerry Heil went top-3 in 2024 with &ldquo;Teresa &amp; Maria.&rdquo; Both were full-management ENKO artists, with our team behind everything from release to stage.</p>
@@ -322,13 +331,14 @@
         <h3>Platform programs</h3>
         <p>Our artists front the platforms&rsquo; own campaigns: Apple Music Sessions, Apple Music Up Next, and Spotify EQUAL. Banners, covers, playlists, special sessions, and billboards over Times Square. Eight ENKO artists have fronted Spotify&rsquo;s EQUAL program alone.</p>
         <div class="covers" aria-label="Campaign covers">
-          <div class="cover-slot">Spotify EQUAL</div>
-          <img src="assets/covers/hot-hits.jpg" alt="Spotify Hot Hits Ukraine editorial cover" loading="lazy">
-          <div class="cover-slot">Народження зірки · Лея</div>
-          <div class="cover-slot">Віральні хіти</div>
-          <div class="cover-slot">Sessions · alyona alyona &amp; Jerry Heil</div>
-          <div class="cover-slot">ALPHA</div>
-          <div class="cover-slot">Новинки щоп&rsquo;ятниці · Carpetman</div>
+          <img src="assets/covers/solovyinoyu.jpg" alt="Spotify editorial cover — Найкращі пісні солов&rsquo;їною" loading="lazy">
+          <img src="assets/covers/hot-hits-2.jpg" alt="Spotify Hot Hits Україна editorial cover" loading="lazy">
+          <img src="assets/covers/hot-hits.jpg" alt="Spotify Hot Hits Україна editorial cover" loading="lazy">
+          <img src="assets/covers/equal.jpg" alt="Spotify EQUAL Україна cover" loading="lazy">
+          <img src="assets/covers/narodzhennia-zirky.jpg" alt="Apple Music Народження зірки cover — Лея" loading="lazy">
+          <img src="assets/covers/viralni-hity.jpg" alt="Apple Music Віральні хіти cover" loading="lazy">
+          <img src="assets/covers/sessions-alyona-jerry.jpg" alt="Apple Music Sessions cover — alyona alyona &amp; Jerry Heil" loading="lazy">
+          <img src="assets/covers/alpha.jpg" alt="Apple Music ALPHA cover — alyona alyona" loading="lazy">
         </div>
       </div>
       <div class="ach-row">
@@ -344,20 +354,14 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section class="section" id="contact" aria-labelledby="contact-title" style="padding-bottom:0">
+<section class="section section-contact" id="contact" aria-labelledby="contact-title" style="padding-bottom:0">
   <div class="wrap contact-inner" style="padding-top:0">
     <div>
-      <h2 class="display" id="contact-title" style="font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.02">Let&rsquo;s<br>talk</h2>
+      <h2 class="display" id="contact-title" style="font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.02">Contact<br>us</h2>
       <p class="invite">Send over your project and we&rsquo;ll tell you, straight, what we&rsquo;d do with it.</p>
     </div>
-    <div>
-      <form id="contactForm" novalidate>
-        <label class="field"><span>Name</span><input type="text" name="name" autocomplete="name" required placeholder="Your name"></label>
-        <label class="field"><span>Artist name or Spotify link</span><input type="text" name="artist" required placeholder="Artist name or link"></label>
-        <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" required placeholder="you@email.com"></label>
-        <button class="btn btn-paper" type="submit">Send it</button>
-        <p class="direct">Not an artist? For any other inquiries: <b>info@enkomusic.com</b> <em>(address to be confirmed)</em></p>
-      </form>
+    <div class="contact-side">
+      <a class="contact-email" href="mailto:distribution@enkomusic.com">distribution@enkomusic.com</a>
     </div>
   </div>
   <footer>
@@ -387,15 +391,6 @@
         b.setAttribute('aria-pressed', String(b === btn));
       });
     });
-  });
-
-  document.getElementById('contactForm').addEventListener('submit', function(ev){
-    ev.preventDefault();
-    var f = ev.target;
-    if (!f.reportValidity()) return;
-    var body = 'Name: ' + f.name.value + '\nArtist / link: ' + f.artist.value + '\nEmail: ' + f.email.value;
-    location.href = 'mailto:info@enkomusic.com?subject=' +
-      encodeURIComponent('Project from ' + f.name.value) + '&body=' + encodeURIComponent(body);
   });
 </script>
 </body>
