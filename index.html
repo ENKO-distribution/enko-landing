@@ -60,12 +60,6 @@
   .hero-v1 h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,7.2vw,5.6rem);line-height:1.04;letter-spacing:-.01em;text-transform:uppercase;max-width:16ch}
   .hero .sub{margin-top:var(--space-md);font-size:1.05rem;font-weight:500;color:var(--paper-88);max-width:40ch;text-wrap:pretty}
   .hero-cta{margin-top:var(--space-lg)}
-  .hero-v2{text-align:center;align-items:center;display:flex;flex-direction:column;justify-content:center;flex:1;padding-top:3rem}
-  .eyebrow{font-size:.95rem;font-weight:500;color:rgba(255,255,255,.85)}
-  .hero-v2 h1{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,7.5vw,5.8rem);line-height:1.06;letter-spacing:-.01em;text-transform:uppercase;margin-top:var(--space-sm)}
-  .hero-v2 .services-line{margin-top:var(--space-md);font-family:var(--display);font-weight:500;font-size:clamp(.85rem,1.7vw,1.05rem);letter-spacing:.04em;text-transform:uppercase}
-  .hero-v2 .mission{margin-top:var(--space-md);font-size:1.1rem;color:rgba(255,255,255,.9);max-width:50ch;text-wrap:balance}
-  .hero-v2 .statline{margin-top:var(--space-sm);font-weight:600;font-size:1rem}
   [hidden]{display:none !important}
   /* partner logos: small translucent white row at hero bottom */
   .hero-partners{display:flex;flex-wrap:wrap;gap:1.25rem 2rem;align-items:center;justify-content:space-between;margin-top:var(--space-lg);padding-top:1.4rem;border-top:1px solid var(--paper-14)}
@@ -158,11 +152,6 @@
   footer{border-top:1px solid var(--paper-14)}
   .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;padding-block:1.5rem;font-size:.88rem;color:var(--paper-70)}
 
-  /* variant toggle (review only) */
-  .vtoggle{position:fixed;bottom:1.25rem;right:1.25rem;z-index:var(--z-toggle);display:flex;gap:.25rem;background:var(--paper);border-radius:999px;padding:.3rem;box-shadow:0 6px 24px rgba(0,0,0,.35);font-size:.82rem;font-weight:600}
-  .vtoggle button{border:0;background:transparent;font:inherit;padding:.45em 1em;border-radius:999px;cursor:pointer;color:rgba(10,10,10,.62)}
-  .vtoggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-  .vtoggle button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 
   /* responsive */
   @media (max-width:840px){
@@ -179,8 +168,6 @@
   }
   @media (max-width:560px){
     .ach-row{grid-template-columns:1fr;gap:.5rem}
-    .vtoggle{bottom:.75rem;right:.75rem;font-size:.72rem;padding:.2rem}
-    .vtoggle button{padding:.4em .8em}
     .hero-partners{gap:.8rem 1.4rem}
   }
 </style>
@@ -204,21 +191,10 @@
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
 
-    <!-- V1 · Poster -->
-    <div class="hero-v1" id="heroV1">
+    <div class="hero-v1">
       <h1>Global music.<br>Global reach.</h1>
       <p class="sub">Distribution, marketing, and publishing under one roof.</p>
       <div class="hero-cta"><a class="btn btn-paper" href="#contact">Talk to us</a></div>
-    </div>
-
-    <!-- V2 · Statement -->
-    <div class="hero-v2" id="heroV2" hidden>
-      <p class="eyebrow">(Music company)</p>
-      <h1>More than<br>a label.</h1>
-      <p class="services-line">Distribution. Marketing. Publishing. Artist development.</p>
-      <p class="mission">We study what the world streams and put our artists there early.</p>
-      <p class="statline">140+ artists. 19.5B+ streams and counting.</p>
-      <div class="hero-cta"><a class="btn btn-paper" href="#contact">Get in touch</a></div>
     </div>
 
     <div class="hero-partners" aria-label="Partners">
@@ -373,25 +349,5 @@
   </footer>
 </section>
 
-<!-- Review-only hero variant toggle: remove after the team picks. -->
-<div class="vtoggle" role="group" aria-label="Hero variant preview (review only)">
-  <button type="button" data-v="1" aria-pressed="true">V1 · Poster</button>
-  <button type="button" data-v="2" aria-pressed="false">V2 · Statement</button>
-</div>
-
-<script>
-  document.documentElement.classList.add('js');
-
-  var v1 = document.getElementById('heroV1'), v2 = document.getElementById('heroV2');
-  document.querySelectorAll('.vtoggle button').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var v = btn.getAttribute('data-v');
-      v1.hidden = v !== '1'; v2.hidden = v !== '2';
-      document.querySelectorAll('.vtoggle button').forEach(function(b){
-        b.setAttribute('aria-pressed', String(b === btn));
-      });
-    });
-  });
-</script>
 </body>
 </html>
